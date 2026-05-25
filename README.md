@@ -1,5 +1,3 @@
-### 🇺🇸 英文版内容预览 (README.md)
-
 ```markdown
 # AI Ops Mind - Intelligent Operations Assistant Platform v2.0
 * **中文版本**：`README_ZH.md` 
