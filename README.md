@@ -114,8 +114,8 @@ Health Check Endpoint: http://localhost:8000/api/health
 
 Prometheus Metrics: http://localhost:8000/api/metrics
 
-<img width="1515" height="1247" alt="image" src="https://github.com/user-attachments/assets/50def48e-d0d9-45d7-9ad0-3477da03427e" />
-<img width="2362" height="1157" alt="image" src="https://github.com/user-attachments/assets/717c0b83-0942-40ec-8bc0-7f915f375fa3" />
+<img width="1515" height="1247" alt="image" src="https://github.com/user-attachments/assets/09e05ce6-aa96-4beb-9a13-a40a613319da" />
+<img width="2362" height="1157" alt="image" src="https://github.com/user-attachments/assets/d0430c51-8eaa-49c0-a4c3-c9c2d0ab129b" />
 
 
 
