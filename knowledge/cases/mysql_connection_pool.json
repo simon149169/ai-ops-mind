@@ -1,0 +1,18 @@
+{
+  "id": "case_042",
+  "title": "MySQL连接池耗尽问题处理",
+  "description": "当MySQL连接池耗尽时，应用无法获取数据库连接，导致服务不可用",
+  "symptoms": [
+    "Connection refused to mysql-primary:3306",
+    "Transaction rollback: unable to acquire connection",
+    "连接池等待超时"
+  ],
+  "root_cause": "数据库连接池配置不足或连接没有正确释放",
+  "solutions": [
+    "检查mysql-primary是否存活",
+    "检查连接池配置和最大连接数",
+    "确认是否有慢查询导致连接耗尽",
+    "增加连接池大小或调整wait_timeout"
+  ],
+  "similarity_threshold": 0.94
+}

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Ops Mind - 智能运维助手平台</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="header">
+            <div class="logo">
+                <span class="logo-icon">🔧</span>
+                <span class="logo-text">AI Ops Mind</span>
+            </div>
+            <div class="header-right">
+                <span class="version">v2.0</span>
+            </div>
+        </header>
+        
+        <div class="main-content">
+            <aside class="sidebar">
+                <div class="nav-section">
+                    <h3>功能模块</h3>
+                    <nav class="nav-list">
+                        <button class="nav-item active" data-section="chat">
+                            <span class="nav-icon">💬</span>
+                            <span>对话分析</span>
+                        </button>
+                        <button class="nav-item" data-section="alerts">
+                            <span class="nav-icon">🚨</span>
+                            <span>告警监控</span>
+                        </button>
+                        <button class="nav-item" data-section="rca">
+                            <span class="nav-icon">📋</span>
+                            <span>RCA报告</span>
+                        </button>
+                        <button class="nav-item" data-section="knowledge">
+                            <span class="nav-icon">📚</span>
+                            <span>知识库</span>
+                        </button>
+                    </nav>
+                </div>
+                
+                <div class="stats-section">
+                    <h3>实时指标</h3>
+                    <div class="stat-item">
+                        <span class="stat-label">告警数</span>
+                        <span class="stat-value">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">RAG命中率</span>
+                        <span class="stat-value">--</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">分析正确率</span>
+                        <span class="stat-value">--</span>
+                    </div>
+                </div>
+            </aside>
+            
+            <main class="content-area">
+                <section id="chat-section" class="content-section active">
+                    <div class="section-header">
+                        <h2>智能日志分析</h2>
+                        <div class="confidence-badge" id="confidence-indicator">
+                            <span class="confidence-label">置信度</span>
+                            <span class="confidence-value">--</span>
+                        </div>
+                    </div>
+                    
+                    <div class="chat-container" id="chat-container">
+                        <div class="message system-message">
+                            <div class="message-content">
+                                欢迎使用 AI Ops Mind！请输入日志内容进行分析，我会帮您诊断根因并提供处置建议。
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="input-area">
+                        <textarea id="log-input" placeholder="请输入日志内容..."></textarea>
+                        <div class="input-actions">
+                            <button class="btn btn-secondary" id="clear-btn">清空</button>
+                            <button class="btn btn-primary" id="analyze-btn">
+                                <span>分析</span>
+                                <span class="btn-icon">→</span>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="sources-panel" id="sources-panel" style="display: none;">
+                        <h4>参考案例</h4>
+                        <div class="sources-list" id="sources-list"></div>
+                    </div>
+                    
+                    <div class="feedback-panel" id="feedback-panel" style="display: none;">
+                        <h4>分析反馈</h4>
+                        <div class="feedback-actions">
+                            <button class="btn btn-success" id="feedback-correct">✓ 分析正确</button>
+                            <button class="btn btn-danger" id="feedback-incorrect">✗ 分析有误</button>
+                            <input type="text" id="feedback-comment" placeholder="请输入反馈意见...">
+                        </div>
+                    </div>
+                </section>
+                
+                <section id="alerts-section" class="content-section">
+                    <div class="section-header">
+                        <h2>告警监控面板</h2>
+                        <button class="btn btn-primary" id="refresh-alerts">刷新</button>
+                    </div>
+                    
+                    <div class="alerts-grid" id="alerts-grid">
+                        <div class="alert-card alert-p0">
+                            <div class="alert-header">
+                                <span class="alert-severity">P0</span>
+                                <span class="alert-service">payment-service</span>
+                            </div>
+                            <h3 class="alert-title">HighErrorRate</h3>
+                            <p class="alert-desc">Error rate exceeded 300%</p>
+                            <div class="alert-meta">
+                                <span>2026-05-25 03:14:20</span>
+                                <button class="btn btn-sm">查看详情</button>
+                            </div>
+                        </div>
+                        
+                        <div class="alert-card alert-p1">
+                            <div class="alert-header">
+                                <span class="alert-severity">P1</span>
+                                <span class="alert-service">gateway</span>
+                            </div>
+                            <h3 class="alert-title">HighLatency</h3>
+                            <p class="alert-desc">P99 latency > 5s</p>
+                            <div class="alert-meta">
+                                <span>2026-05-25 03:13:45</span>
+                                <button class="btn btn-sm">查看详情</button>
+                            </div>
+                        </div>
+                        
+                        <div class="alert-card alert-p2">
+                            <div class="alert-header">
+                                <span class="alert-severity">P2</span>
+                                <span class="alert-service">auth-service</span>
+                            </div>
+                            <h3 class="alert-title">MemoryHigh</h3>
+                            <p class="alert-desc">Memory usage 87%</p>
+                            <div class="alert-meta">
+                                <span>2026-05-25 03:10:00</span>
+                                <button class="btn btn-sm">查看详情</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <section id="rca-section" class="content-section">
+                    <div class="section-header">
+                        <h2>RCA报告生成</h2>
+                    </div>
+                    
+                    <div class="rca-form">
+                        <input type="text" id="rca-incident" placeholder="事件名称">
+                        <textarea id="rca-logs" placeholder="相关日志（可选）"></textarea>
+                        <button class="btn btn-primary" id="generate-rca">生成报告</button>
+                    </div>
+                    
+                    <div class="rca-report" id="rca-report">
+                        <pre>报告将在这里显示...</pre>
+                    </div>
+                </section>
+                
+                <section id="knowledge-section" class="content-section">
+                    <div class="section-header">
+                        <h2>知识库管理</h2>
+                        <button class="btn btn-primary" id="upload-knowledge">上传文档</button>
+                    </div>
+                    
+                    <div class="knowledge-search">
+                        <input type="text" id="knowledge-query" placeholder="搜索知识库...">
+                        <button class="btn btn-secondary" id="search-btn">搜索</button>
+                    </div>
+                    
+                    <div class="knowledge-list" id="knowledge-list">
+                        <div class="knowledge-item">
+                            <h4>MySQL连接池问题处理</h4>
+                            <p class="knowledge-preview">当MySQL连接池耗尽时...</p>
+                            <span class="knowledge-meta">来源: case_042</span>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+        
+        <footer class="footer">
+            <span>AI Ops Mind v2.0 - 智能运维助手平台</span>
+        </footer>
+    </div>
+    
+    <script src="js/app.js"></script>
+    <script src="js/components.js"></script>
+</body>
+</html>

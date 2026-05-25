@@ -1,0 +1,18 @@
+{
+  "id": "case_023",
+  "title": "网络分区故障处理",
+  "description": "Pod之间网络不通导致服务无法正常通信",
+  "symptoms": [
+    "Connection timeout",
+    "Service Unavailable",
+    "Pod之间无法ping通"
+  ],
+  "root_cause": "网络策略配置错误或CNI插件问题",
+  "solutions": [
+    "检查网络策略配置",
+    "验证CNI插件状态",
+    "检查防火墙规则",
+    "使用kubectl exec测试网络连通性"
+  ],
+  "similarity_threshold": 0.82
+}

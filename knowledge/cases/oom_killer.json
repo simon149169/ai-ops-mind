@@ -1,0 +1,18 @@
+{
+  "id": "case_017",
+  "title": "OOM Killer 进程被杀死问题",
+  "description": "Linux系统内存不足时，OOM Killer会杀死占用内存最大的进程",
+  "symptoms": [
+    "Out of memory: Killed process",
+    "进程意外退出",
+    "dmesg显示OOM相关日志"
+  ],
+  "root_cause": "系统内存不足，触发OOM Killer",
+  "solutions": [
+    "增加系统内存",
+    "优化应用内存使用",
+    "配置OOM Killer优先级",
+    "启用swap或调整vm.swappiness"
+  ],
+  "similarity_threshold": 0.88
+}
