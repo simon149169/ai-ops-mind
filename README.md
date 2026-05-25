@@ -112,6 +112,10 @@ docker-compose up -d
 - 健康检查：http://localhost:8000/api/health
 - 指标端点：http://localhost:8000/api/metrics
 
+<img width="1515" height="1247" alt="image" src="https://github.com/user-attachments/assets/09e05ce6-aa96-4beb-9a13-a40a613319da" />
+<img width="2362" height="1157" alt="image" src="https://github.com/user-attachments/assets/d0430c51-8eaa-49c0-a4c3-c9c2d0ab129b" />
+
+
 ## API 接口
 
 | 方法 | 路径 | 描述 |
